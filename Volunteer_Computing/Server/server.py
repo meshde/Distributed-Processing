@@ -17,6 +17,10 @@ def get_task():
 	with open(path,'rb') as file:
 		return send_file(io.BytesIO(file.read()),mimetype='application/octet-stream',attachment_filename='matrix')
 
+@app.route('/data')
+def get_data():
+	return send_file('hello.txt',attachment_filename='data.txt',mimetype='text/plain')
+
 def main():
 	app.run(debug=True)
 	return
